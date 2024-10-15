@@ -4,130 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toolbox - Webpr</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-
-        .box-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .box {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .box h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .box p {
-            font-size: 1em;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .box a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .box a:hover {
-            background-color: #2980b9;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            opacity: 0;
-            animation: fall linear 2s;
-            pointer-events: none;
-            border-radius: 50%;
-        }
-
-        .title-container {
-            margin-bottom: 50px;
-        }
-
-        .text-align-center {
-            text-align: center;
-        }
-
-        .puls--text {
-            animation: puls 1s infinite;
-            color: #2980b9;
-        }
-
-        @keyframes puls {
-            0% {
-                transform: scale(1);
-                color: #2980b9;
-            }
-            50% {
-                transform: scale(1.1);
-                color: #3498db;
-            }
-            100% {
-                transform: scale(1);
-                color: #2980b9;
-            }
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
     <div class="container">
@@ -138,43 +15,15 @@
 
         <div class="box-container">
             <div class="box">
-                <h3>Week 1</h3>
-                <p>....</p>
-                <a href="#">Jump to Week 1</a>
+                <h3>Array Functions</h3>
+                <p>
+                    Get a summary of the learned js array functions.
+                </p>
+                <a href="array-functions.html">Summary</a>
             </div>
         </div>
     </div>
 
-    <script>
-        const createdConfettiPerMove = 6;
-
-        document.addEventListener('mousemove', (event) => {
-            const createConfetti = (x, y) => {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.left = `${x}px`;
-                confetti.style.top = `${y}px`;
-
-                const size = Math.random() * 10 + 5;
-                confetti.style.width = `${size}px`;
-                confetti.style.height = `${size}px`;
-
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-
-                const duration = Math.random() * 2 + 1;
-                confetti.style.animationDuration = `${duration}s`;
-
-                document.body.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, duration * 1000);
-            }
-
-            for (let i = 0; i < createdConfettiPerMove; i++) {
-                createConfetti(event.clientX, event.clientY);
-            }
-        });
-    </script>
+    <script src="./assets/js/confetti.js"></script>
 </body>
 </html>
